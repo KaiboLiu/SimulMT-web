@@ -6,7 +6,7 @@ app = flask.Flask(__name__)
 @app.route( '/stream' )
 def stream():
     g = proc.Group()
-    p = g.run( [ "bash", "-c", "for ((i=0;i<100;i=i+1)); do echo $i; sleep 1; done" ] )
+    p = g.run( [ "bash", "-c", "for ((i=0;i<100;i=i+1)); do echo $i; sleep 0.1; done" ] )
 
     def read_process():
         while g.is_pending():
