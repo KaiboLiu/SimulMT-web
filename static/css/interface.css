@@ -1,0 +1,26 @@
+.info_refresh{
+   color: blue;
+   font-size: 16px;
+}
+
+
+.inlineDiv{
+	width: 31%;
+	display:inline-block;/*inline-block can keep height and width within the element, while `inline` along will lose these attributes*/
+}
+.subtitle{
+	font-family:Arial;
+	overflow:scroll;
+	height: 500px;
+	background-color: black;
+	color: white;
+	
+}
+
+#engBox{
+  color:lightblue;
+}
+
+
+
+

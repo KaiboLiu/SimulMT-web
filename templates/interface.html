@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Web Server for Simultanous Translator</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../static/css/interface.css">
+        <script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type=text/javascript>
+            var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+	</head>
+
+	<body>
+        
+            <h1 id="pageTitle">Web Server for Simultanous Translator (<span id="modelLoadingMsg">{{model}}</span>)</h1>
+            <!--<form action="/action_go.phdiv>">-->
+
+        <p>
+            <button type="button" id="startBtn"> Start </button>
+            <button type="button" id="stopBtn"> Stop </button>
+           <br>
+           
+        <br><br>
+
+        <div>cpu:  <span class='info_refresh' id='cpu'></span></div>
+        <div>ram:  <span class='info_refresh' id='ram'></span></div>
+        <div>time: <span class='info_refresh' id='time'></span></div>
+
+            <br><br><br><br>
+        <div class="bigDIV">
+            <div class="inlineDiv">
+                Chinese <p>
+                <div id="chnBox" class="subtitle">
+                 
+                 <p>大家好！各位来宾、各位合作伙伴、各位媒体界的朋友们</p>
+                <p>上午好！欢迎大家来到2017百度世界！大家知道</p>
+                <p>百度世界是我们一年一度的百度技术和产品创新大会</p>
+                <p>而今年的百度世界和往年又有一点不一样</p>
+                <p>其中最大的不同之处就是我们推迟到冬天召开了</p>
+                <p>以前都是在8月或者9月</p>
+                <p>这是因为我们在7月份的时候刚刚召开过一次百度AI开发者大会</p>
+                <p>7月到11月虽然只有短短4个月的时间</p>
+                <p>但其实很多东西已经发生了改变</p>
+                <p>已经有很多新的技术、新的产品、新的值得我们和大家分享的东西来了</p>
+                <p>那么</p>
+                <p>在7月份的百度开发者大会上</p>
+                <p>给大家留下最深刻印象的东西是什么</p>
+                <p>从那次开发者大会到现在</p>
+                <p>人们问我最多的问题是什么</p>
+                <p>你有没有吃到罚单</p>
+                <p>我在这里统一地给大家回复一下</p>
+                <p>我们的无人车确实吃到了一张罚单</p>
+                <p>但是我想说的是</p>
+                <p>如果无人驾驶的罚单已经来了</p>
+                <p>无人驾驶汽车的量产还会远吗</p>
+                <p>从7月份我们正式开放无人驾驶技术平台Apollo到现在</p>
+                <p>我们已经有6000多个开发者在投票支持Apollo项目；有1700多家合作伙伴加入了Apollo</p>
+                <p>开始使用Apollo的开放代码；有100多个合作伙伴申请使用Apollo的开放数据</p>
+                <p>它已经变成了一个非常活跃的开放平台</p>
+                <p>很多人都能够从中受益</p>
+                <p>从7月到现在</p>
+                <p>我唯一一次去逛商场被认出来</p>
+                <p>被问到的第一个问题就是“李总</p>
+                <p>我什么时候能坐上你们的无人车</p>
+                <p>”我说“我们在努力”</p>
+                <p>当前</p>
+                <p>整个业界对这个事情的判断和时间表大概是什么呢</p>
+                <p>在2020年的时候</p>
+                <p>我们的无人车可以实现量产</p>
+                <p>但是</p>
+                <p>我们并不满足</p>
+                <p>我们希望能够更早地去生产、去量产无人车</p>
+                <p>所以</p>
+                <p>在前不久我们刚刚宣布和金龙汽车合作</p>
+                <p>生产一款无人驾驶的小巴车</p>
+                <p>在2018年7月份实现量产</p>
+                <p>在两边的大屏幕上大家可以看到</p>
+                <p>这个小巴车没有方向盘、没有驾驶位</p>
+                <p>它是一个真正的无人驾驶汽车</p>
+                <p>当然在明年开始运营的时候</p>
+                <p>它会先在相对封闭的道路上进行运营</p>
+                </div>
+            </div>
+
+            <div class="inlineDiv">
+                Simultaneous Translation (wait {{waitnum}})<p>
+                <div id="engBox" class="subtitle">
+                <p>Hello everyone! Distinguished guests, partners and friends from the media circles</p>
+                <p>Good morning! Welcome to Baidu world 2017! Everyone knows</p>
+                <p>Baidu world is our annual Baidu technology and product innovation conference.</p>
+                <p>This year's Baidu world is different from previous years.</p>
+                <p>The biggest difference is that we postponed the winter.</p>
+                <p>It used to be in August or September.</p>
+                <p>This is because we just convened a Baidu AI developer conference in July.</p>
+                <p>From July to November, though it is only 4 short months.</p>
+                <p>But many things have changed.</p>
+                <p>There's a lot of new technology, new products, new things we can share with you.</p>
+                <p>that</p>
+                <p>At Baidu Developer Conference July.</p>
+                <p>What is the most impressive thing for you?</p>
+                <p>From that developer conference to now</p>
+                <p>People ask me what the most important questions are.</p>
+                <p>Did you get a ticket?</p>
+                <p>I would like to give you a unified reply here.</p>
+                <p>Our driverless car did get a ticket.</p>
+                <p>But what I want to say is</p>
+                <p>If the driverless ticket has arrived.</p>
+                <p>Will the mass production of driverless cars be far behind?</p>
+                <p>Since July, we have officially opened the Apollo, the driverless technology platform.</p>
+                <p>We have more than 6,000 developers voting for Apollo; more than 1,700 partners have joined Apollo</p>
+                <p>Start using Apollo's open code; more than 100 partners have applied for Apollo's open data</p>
+                <p>It has become a very active open platform.</p>
+                <p>Many people can benefit from it.</p>
+                <p>From July to now</p>
+                <p>The only time I went shopping was recognized.</p>
+                <p>The first question asked was "Li Zong."</p>
+                <p>When can I get on your driverless car?</p>
+                <p>I said, "we are working hard".</p>
+                <p>current</p>
+                <p>What is the whole industry's judgement and timetable for this matter?</p>
+                <p>In 2020</p>
+                <p>Our driverless car can achieve mass production.</p>
+                <p>however</p>
+                <p>We are not satisfied.</p>
+                <p>We hope to be able to produce and produce the driverless cars earlier.</p>
+                <p>therefore</p>
+                <p>Not long ago, we have just announced cooperation with Jinlong automobile.</p>
+                <p>The production of an unmanned minibus car.</p>
+                <p>Mass production was achieved in July 2018.</p>
+                <p>You can see on both sides of the big screen.</p>
+                <p>The minibus has no steering wheel and no driving position.</p>
+                <p>It's a real driverless car.</p>
+                <p>Of course, when the operation starts next year.</p>
+                <p>It will operate on a relatively closed road.</p>
+                
+                 </div>
+            </div>
+
+
+            <div class="inlineDiv">
+                baseline<p>
+
+                <div id="baselineBox" class="subtitle">
+                 </div>
+            </div>
+
+
+          </div>
+        
+         <a id="link">link</a>         
+          </div>
+        
+
+         <a id="link">link</a>
+
+
+
+
+        <!--
+        <script type=text/javascript>
+          $(function() {
+            $('a#calculate').bind('click', function() {
+              $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
+                a: $('input[name="a"]').val(),
+                b: $('input[name="b"]').val()
+              }, function(data) {
+                $("#result").text(data.result);
+                $('input[name=a]').focus().select();
+              });
+              return false;
+            });
+          });
+        </script>
+        -->
+
+
+
+        <script type=text/javascript>
+          $(function() {
+            $('button#startBtn').bind('click', function() {
+              $.getJSON($SCRIPT_ROOT + '/start', 
+                function(data) {
+                    //$("#modelLoadingMsg").text("model: "+data.model);
+              });
+              return false;
+            });
+          });
+        </script>
+
+
+
+    
+    <!--
+    <script type=text/javascript src="{{url_for('static', filename='jquery.min.js') }}"></script>
+    -->    
+    <script src="../static/js/jquery.min.js"></script>        
+	<script src="../static/js/interface.js"></script>
+       </body>
+</html>
+
